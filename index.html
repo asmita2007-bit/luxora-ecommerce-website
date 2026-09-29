@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUXORA — Premium E-Commerce</title>
+<meta name="description" content="LUXORA premium fashion, beauty, footwear and lifestyle e-commerce demo.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <span>✦ FREE SHIPPING ON ORDERS ABOVE ₹999</span>
+  <span>USE <b>LUXORA10</b> FOR 10% OFF</span>
+  <span>7-DAY EASY RETURNS</span>
+</div>
+
+<header class="header">
+  <a class="logo" href="#home">LUXORA<span>STORE</span></a>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#shop">Shop</a>
+    <a href="#categories">Categories</a>
+    <a href="#offers">Offers</a>
+    <a href="#about">About</a>
+  </nav>
+  <div class="header-actions">
+    <button onclick="focusSearch()" aria-label="Search">⌕</button>
+    <button onclick="showWishlist()" aria-label="Wishlist">♡ <i id="wishCount">0</i></button>
+    <button onclick="openCart()" aria-label="Cart">🛍 <i id="cartCount">0</i></button>
+  </div>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div class="hero-content">
+    <p class="eyebrow">THE NEW SEASON • 2026</p>
+    <h1>Style that<br><em>speaks for you.</em></h1>
+    <p class="hero-text">Discover fashion, beauty, footwear and lifestyle essentials curated for your everyday moments.</p>
+    <div class="hero-buttons">
+      <button class="btn dark" onclick="goShop()">SHOP COLLECTION →</button>
+      <button class="btn light" onclick="openCategory('Fashion')">EXPLORE FASHION</button>
+    </div>
+    <div class="hero-trust"><span>✓ Curated Products</span><span>✓ Secure Checkout</span><span>✓ Easy Returns</span></div>
+  </div>
+  <div class="hero-art">
+    <div class="hero-circle"></div>
+    <div class="hero-card back">LUXORA<br><small>NEW SEASON</small></div>
+    <div class="hero-card main">✦<strong>THE<br>LUXORA<br>EDIT</strong><small>2026 COLLECTION</small></div>
+    <div class="hero-price">FROM<br><b>₹499</b></div>
+  </div>
+</section>
+
+<section class="trust-strip">
+  <div>🚚 <b>Free Delivery</b><small>On orders above ₹999</small></div>
+  <div>🔒 <b>Secure Payment</b><small>100% safe demo checkout</small></div>
+  <div>↩️ <b>Easy Returns</b><small>7-day return policy</small></div>
+  <div>💬 <b>24/7 Support</b><small>We're here to help</small></div>
+</section>
+
+<section id="categories" class="section">
+  <div class="section-head"><div><p class="eyebrow">SHOP BY MOOD</p><h2>Find your <em>favourite.</em></h2></div><p>Choose a category and discover your next everyday essential.</p></div>
+  <div class="categories">
+    <button class="category fashion" onclick="openCategory('Fashion')"><span>👗</span><b>Fashion</b><small>Clothing & bags</small><strong>EXPLORE →</strong></button>
+    <button class="category beauty" onclick="openCategory('Beauty')"><span>✨</span><b>Beauty</b><small>Self-care essentials</small><strong>EXPLORE →</strong></button>
+    <button class="category footwear" onclick="openCategory('Footwear')"><span>👟</span><b>Footwear</b><small>Shoes for every day</small><strong>EXPLORE →</strong></button>
+    <button class="category lifestyle" onclick="openCategory('Lifestyle')"><span>⌚</span><b>Lifestyle</b><small>Travel & accessories</small><strong>EXPLORE →</strong></button>
+  </div>
+</section>
+
+<section id="shop" class="section shop-section">
+  <div class="section-head">
+    <div><p class="eyebrow">THE COLLECTION</p><h2>Shop <em>everything.</em></h2></div>
+    <div class="search-wrap"><input id="searchInput" type="search" placeholder="Search products..." oninput="renderProducts()"><button onclick="focusSearch()">⌕</button></div>
+  </div>
+  <div class="filters">
+    <button class="filter active" data-cat="All" onclick="setCategory('All')">All</button>
+    <button class="filter" data-cat="Fashion" onclick="setCategory('Fashion')">Fashion</button>
+    <button class="filter" data-cat="Beauty" onclick="setCategory('Beauty')">Beauty</button>
+    <button class="filter" data-cat="Footwear" onclick="setCategory('Footwear')">Footwear</button>
+    <button class="filter" data-cat="Lifestyle" onclick="setCategory('Lifestyle')">Lifestyle</button>
+    <select id="sortSelect" onchange="renderProducts()"><option value="featured">Sort: Featured</option><option value="low">Price: Low to High</option><option value="high">Price: High to Low</option><option value="rating">Top Rated</option></select>
+  </div>
+  <p id="resultCount" class="result-count"></p>
+  <div id="productGrid" class="product-grid"></div>
+</section>
+
+<section id="offers" class="offer">
+  <div><p class="eyebrow">LIMITED TIME</p><h2>20% off your<br><em>first order.</em></h2><p>Build your LUXORA cart and use <b>WELCOME20</b> at checkout.</p><button class="btn dark" onclick="goShop()">SHOP THE OFFER →</button></div>
+  <div class="offer-badge"><span>UP TO</span><b>20%</b><small>OFF</small></div>
+</section>
+
+<section id="about" class="section about">
+  <div><p class="eyebrow">THE LUXORA PROMISE</p><h2>Shopping made<br><em>beautifully simple.</em></h2></div>
+  <div class="about-copy"><p>LUXORA is a premium e-commerce demo designed around a smooth shopping journey—from discovering a product to adding it to your bag, entering a delivery address and placing an order.</p><div class="promise-grid"><span>01<br><b>Curated</b><small>Thoughtful product selection</small></span><span>02<br><b>Simple</b><small>Clean shopping experience</small></span><span>03<br><b>Secure</b><small>Protected checkout flow</small></span><span>04<br><b>Reliable</b><small>Clear delivery information</small></span></div></div>
+</section>
+
+<section class="newsletter">
+  <div><p class="eyebrow">STAY IN THE LOOP</p><h2>Get the good stuff.</h2><p>New arrivals, offers and style inspiration—straight to your inbox.</p></div>
+  <form onsubmit="subscribe(event)"><input id="email" type="email" required placeholder="Your email address"><button class="btn dark">SUBSCRIBE</button></form>
+</section>
+</main>
+
+<footer>
+  <div class="footer-brand"><div class="logo">LUXORA<span>STORE</span></div><p>Everyday style, elevated.</p></div>
+  <div><b>SHOP</b><a onclick="openCategory('Fashion')">Fashion</a><a onclick="openCategory('Beauty')">Beauty</a><a onclick="openCategory('Footwear')">Footwear</a><a onclick="openCategory('Lifestyle')">Lifestyle</a></div>
+  <div><b>HELP</b><a>Delivery</a><a>Returns</a><a>Payment</a><a>Contact</a></div>
+  <div><b>CONTACT</b><p>support@luxora.store</p><p>+91 98765 43210</p><p>Pune, Maharashtra, India</p></div>
+  <div class="copyright">© 2026 LUXORA. Digital Marketing Practical E-Commerce Website.</div>
+</footer>
+
+<!-- Product Details -->
+<div class="modal" id="productModal">
+ <div class="modal-card product-modal">
+  <button class="close" onclick="closeModal('productModal')">×</button>
+  <div id="productDetails"></div>
+ </div>
+</div>
+
+<!-- Cart -->
+<div class="drawer-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<aside class="cart-drawer" id="cartDrawer">
+ <div class="drawer-head"><h2>Your Bag</h2><button class="close" onclick="closeCart()">×</button></div>
+ <div id="cartItems" class="cart-items"></div>
+ <div class="cart-bottom">
+   <div class="totals"><span>Subtotal</span><b id="cartSubtotal">₹0</b></div>
+   <div class="coupon"><input id="couponInput" placeholder="Coupon code"><button onclick="applyCoupon()">APPLY</button></div>
+   <p id="couponMsg"></p>
+   <div class="totals total"><span>Total</span><b id="cartTotal">₹0</b></div>
+   <button class="btn dark full" onclick="openCheckout()">PROCEED TO CHECKOUT →</button>
+ </div>
+</aside>
+
+<!-- Checkout -->
+<div class="modal" id="checkoutModal">
+ <div class="modal-card checkout-modal">
+  <button class="close" onclick="closeModal('checkoutModal')">×</button>
+  <div class="checkout-title"><p class="eyebrow">SECURE CHECKOUT</p><h2>Complete your order.</h2></div>
+  <div class="checkout-grid">
+   <form id="checkoutForm" onsubmit="placeOrder(event)">
+    <div class="step"><span>1</span><div><h3>Delivery Address</h3><p class="muted">Where should we deliver your order?</p></div></div>
+    <div class="form-grid">
+      <label>Full Name<input name="name" required placeholder="Enter full name"></label>
+      <label>Mobile Number<input name="mobile" required pattern="[0-9]{10}" placeholder="10-digit mobile number"></label>
+      <label class="full">House / Flat / Building<input name="address" required placeholder="House no., flat no., building name"></label>
+      <label class="full">Street / Area / Landmark<input name="area" required placeholder="Street, area, landmark"></label>
+      <label>City<input name="city" required placeholder="City"></label>
+      <label>State<input name="state" required placeholder="State"></label>
+      <label>PIN Code<input id="pin" name="pin" required pattern="[0-9]{6}" maxlength="6" placeholder="6-digit PIN" oninput="checkPin()"></label>
+      <label>Address Type<select name="type"><option>Home</option><option>Work</option><option>Other</option></select></label>
+    </div>
+    <p id="pinStatus" class="pin-status">📍 Enter your 6-digit PIN to check delivery.</p>
+    <div class="step"><span>2</span><div><h3>Payment Method</h3><p class="muted">Choose your preferred demo payment method.</p></div></div>
+    <div class="payments">
+      <label><input type="radio" name="payment" value="COD" checked><b>💵 Cash on Delivery</b><small>Pay when your order arrives</small></label>
+      <label><input type="radio" name="payment" value="UPI"><b>📱 UPI / QR</b><small>Demo UPI payment</small></label>
+      <label><input type="radio" name="payment" value="CARD"><b>💳 Card</b><small>Demo card payment</small></label>
+    </div>
+    <label class="check"><input type="checkbox" required> I confirm that my delivery details are correct.</label>
+    <button class="btn dark full" type="submit">PLACE ORDER SECURELY →</button>
+   </form>
+   <div class="order-summary"><h3>Order Summary</h3><div id="checkoutItems"></div><hr><p><span>Subtotal</span><b id="coSub">₹0</b></p><p><span>Discount</span><b id="coDiscount">₹0</b></p><p><span>Delivery</span><b class="green">FREE</b></p><div class="grand"><span>Total</span><b id="coTotal">₹0</b></div><small>🔒 Your information is used only for this demo checkout.</small></div>
+  </div>
+ </div>
+</div>
+
+<!-- Success -->
+<div class="modal" id="successModal">
+ <div class="modal-card success">
+  <div class="success-icon">✓</div><p class="eyebrow">ORDER CONFIRMED</p><h2>Thank you for shopping with LUXORA!</h2><p>Your demo order has been placed successfully.</p>
+  <div class="order-id"><span>Order ID</span><b id="orderId"></b></div>
+  <button class="btn dark" onclick="closeModal('successModal');goShop()">CONTINUE SHOPPING</button>
+ </div>
+</div>
+
+<div id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
